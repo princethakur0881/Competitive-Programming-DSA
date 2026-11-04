@@ -3,6 +3,13 @@ import java.lang.*;
 import java.io.*;
 
 class Codechef {
+   
+    public static void main(String[] args)throws java.lang.Exception {
+      
+      import java.util.Scanner;
+import java.util.ArrayList;
+
+class Codechef {
     static int n;
     static int[] a;
     static ArrayList<Integer>[] adj;
@@ -13,7 +20,7 @@ class Codechef {
     static ArrayList<Integer>[] dag;
     static int[] inDegree;
 
-    public static void main(String[] args)  throws java.lang.Exception {
+    public static void main(String[] args)  throws java.lang.Exceptio{
         Scanner sc = new Scanner(System.in);
         if (!sc.hasNextInt()) return;
         int t = sc.nextInt();
@@ -204,5 +211,3 @@ class Codechef {
             System.out.println();
         }
         sc.close();
-    }
-}

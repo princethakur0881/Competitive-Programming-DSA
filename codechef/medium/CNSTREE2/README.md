@@ -94,12 +94,19 @@ Output
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T14:56:28.873Z  
+**Submitted:** 2026-11-04T14:55:35.567Z  
 
 ```java
 import java.util.*;
 import java.lang.*;
 import java.io.*;
+
+class Codechef {
+   
+    public static void main(String[] args)throws java.lang.Exception {
+      
+      import java.util.Scanner;
+import java.util.ArrayList;
 
 class Codechef {
     static int n;
@@ -112,7 +119,7 @@ class Codechef {
     static ArrayList<Integer>[] dag;
     static int[] inDegree;
 
-    public static void main(String[] args)  throws java.lang.Exception {
+    public static void main(String[] args)  throws java.lang.Exceptio{
         Scanner sc = new Scanner(System.in);
         if (!sc.hasNextInt()) return;
         int t = sc.nextInt();
@@ -303,8 +310,6 @@ class Codechef {
             System.out.println();
         }
         sc.close();
-    }
-}
 ```
 
 ---

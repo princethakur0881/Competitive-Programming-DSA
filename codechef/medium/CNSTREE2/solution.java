@@ -16,74 +16,7 @@ class Codechef {
 
     public static void main(String[] args)throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
-        
-        if (!sc.hasNextInt()) return;
-        int t = sc.nextInt();
-        
-        while (t-- > 0) {
-            n = sc.nextInt();
-            a = new int[n + 1];
-            for (int i = 1; i <= n; i++) {
-                a[i] = sc.nextInt();
-            }
-
-            adj = new ArrayList[n + 1];
-            for (int i = 1; i <= n; i++) {
-                adj[i] = new ArrayList<>();
-            }
-
-            for (int i = 0; i < n - 1; i++) {
-                int u = sc.nextInt();
-                int v = sc.nextInt();
-                adj[u].add(v);
-                adj[v].add(u);
-            }
-
-            // 1. Line up nodes from root down to leaves using a basic BFS array order
-            parent = new int[n + 1];
-            order = new int[n + 1];
-            boolean[] visited = new boolean[n + 1];
-            
-            int head = 0, tail = 0;
-            order[tail++] = 1;
-            visited[1] = true;
-            
-            while (head < tail) {
-                int curr = order[head++];
-                for (int neighbor : adj[curr]) {
-                    if (!visited[neighbor]) {
-                        visited[neighbor] = true;
-                        parent[neighbor] = curr;
-                        order[tail++] = neighbor;
-                    }
-                }
-            }
-
-            // 2. Tree DP Bottom-Up: Figure out if subtrees can be validly oriented
-            dp = new int[n + 1][2];
-            boolean possible = true;
-
-            for (int i = n - 1; i >= 0; i--) {
-                int u = order[i];
-                
-                // Track conditions for children
-                int childCount = 0;
-                for (int v : adj[u]) {
-                    if (v != parent[u]) childCount++;
-                }
-
-                // Loop over both choices for parent direction: 
-                // state 0: u->parent, state 1: parent->u
-                for (int state = 0; state < 2; state++) {
-                    int outs = (state == 0) ? 1 : 0;
-                    int ins = (state == 1) ? 1 : 0;
-
-                    boolean valid = true;
-                    int canProvideIn = 0;
-                    int canProvideOut = 0;
-
-                    for (int v : adj[u]) {
-                        if (v == parent[u]) continue;
+                       if (v == parent[u]) continue;
                         
                         // To connect to child v: 
                         // If we want u->v, child v must accept v as incoming (dp[v][1] must be valid)

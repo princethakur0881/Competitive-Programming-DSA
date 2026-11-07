@@ -43,7 +43,7 @@ In each line, output the number  located in $y^{th}$ position of $x^{th}$ line. 
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-06T14:56:17.613Z  
+**Submitted:** 2026-11-07T16:01:15.930Z  
 
 ```java
 import java.io.*;

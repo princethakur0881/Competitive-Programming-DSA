@@ -37,7 +37,7 @@ Explanation: 15 distinct balanced trees of height 3 exist.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-06T14:39:20.889Z  
+**Submitted:** 2026-11-07T15:35:14.218Z  
 
 ```java
 class Solution {

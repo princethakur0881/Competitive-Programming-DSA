@@ -1,4 +1,4 @@
-# Java List
+# Java Map
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -29,51 +29,45 @@ To make the problem easier, we provided a portion of the code in the editor. You
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-08T17:28:17.634Z  
+**Submitted:** 2026-11-08T17:32:07.718Z  
 
 ```java
-import java.io.*;
+//Complete this code or write your own from scratch
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+import java.io.*;
 
-public class Solution {
-
-    public static void main(String[] args) {
-     Scanner obj=new Scanner(System.in);
-    ArrayList<Integer> list=new ArrayList<>();
+class Solution{
+	public static void main(String []argh)
+	{
+		 HashMap<String, Integer> Phone=new HashMap<>();
+    Scanner obj=new Scanner(System.in);
     int n=obj.nextInt();
-
+    obj.nextLine();
     for(int i=0;i<n;i++)
     {
-        //int a=obj.nextInt();
-        list.add(obj.nextInt());
+        String name=obj.nextLine();
+        int number=obj.nextInt();
+        obj.nextLine();
+        Phone.put(name, number);
     }
-    int q=obj.nextInt();
-    //obj.nextLine();
-    for(int i=0;i<q;i++)
-    {
-        String query=obj.next();
-        if(query.equals("Insert"))
-        {
-            int x=obj.nextInt();
-            int y=obj.nextInt();
 
-            list.add(x, y);
-            //obj.nextLine();
-        }
-        else if(query.equals("Delete"))
+    while(obj.hasNext())
+    {
+        String query=obj.nextLine();
+        if(Phone.containsKey(query))
         {
-            int x=obj.nextInt();
-            list.remove(x);
+            System.out.println(query+"="+Phone.get(query));
+        }
+        else
+        {
+            System.out.println("Not found");
+        }
         }
     }
-    for(int i:list){
-        System.out.print(i+" ");
-    }
 }
-}
+
+
+
 
 ```
 

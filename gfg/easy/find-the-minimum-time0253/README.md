@@ -29,7 +29,7 @@ Explanation: The optimal approach is to scan both documents using scanner 1, whi
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-08T17:17:57.569Z  
+**Submitted:** 2026-11-09T14:27:57.761Z  
 
 ```java
 class Solution {

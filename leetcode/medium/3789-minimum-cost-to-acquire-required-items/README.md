@@ -62,36 +62,20 @@ Since no items are required (`need1 = need2 = 0`), we buy nothing and pay 0.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 1 ms (beats 100.00%)  
-**Memory:** 42.5 MB (beats 50.00%)  
-**Submitted:** 2026-11-11T16:26:34.377Z  
+**Runtime:** 2 ms (beats 41.18%)  
+**Memory:** 42.2 MB (beats 85.29%)  
+**Submitted:** 2026-11-11T16:25:13.107Z  
 
 ```java
 class Solution {
      public long minimumCost(int cost1, int cost2, int costBoth, int need1, int need2) {
-      long totalCost = 0;
+        return Math.max(bound(need1, cost1, need2, cost2, costBoth), bound(need2, cost2, need1, cost1, costBoth));
+    }
 
-        // Buying separately is cheaper; item 3 is unnecessary
-        if (cost1 + cost2 <= costBoth) {
-            totalCost = 1L * cost1 * need1 + 1L * cost2 * need2;
-        } else {
-            // Buy item 3 first until one requirement is fulfilled
-            int cnt_3 = Math.min(need1, need2);
-            totalCost = 1L * cnt_3 * costBoth;
-
-            need1 -= cnt_3;
-            need2 -= cnt_3;
-
-            // Type 1 is still needed; choose the cheaper of items 1 and 3
-            if (need1 > 0) {
-                totalCost += 1L * need1 * Math.min(cost1, costBoth);
-                // Type 2 is still needed; choose the cheaper of items 2 and 3
-            } else if (need2 > 0) {
-                totalCost += 1L * need2 * Math.min(cost2, costBoth);
-            }
-        }
-
-        return totalCost;
+    private long bound(long needA, int costA, long needB, int costB, int costBoth) {
+        int pA = Math.min(costA, costBoth);  // a takes its full price
+        int pB = Math.min(costB, costBoth - pA);  // b gets what's left of the bundle
+        return needA * pA + needB * pB; 
     }
 }
 ```

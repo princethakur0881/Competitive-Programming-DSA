@@ -62,26 +62,32 @@ The subarray `[1, 2]` has a length of 2 and the minimum sum greater than 0. So, 
 ## Solution
 
 **Language:** Java  
-**Runtime:** 25 ms (beats 9.59%)  
-**Memory:** 45.7 MB (beats 91.22%)  
-**Submitted:** 2026-11-14T15:40:55.997Z  
+**Runtime:** 2 ms (beats 95.92%)  
+**Memory:** 46.1 MB (beats 61.43%)  
+**Submitted:** 2026-11-14T15:44:06.844Z  
 
 ```java
 class Solution {
     public int minimumSumSubarray(List<Integer> nums, int l, int r) {
-         int n = nums.size();
-        int best = Integer.MAX_VALUE;
-
-        for (int len = l; len <= r; len++) {
-            for (int i = 0; i + len <= n; i++) {
-                int sum = 0;
-                for (int k = i; k < i + len; k++)
-                    sum += nums.get(k);
-                if (sum > 0 && sum < best) best = sum;
+                int[] prefix = new int[nums.size()+1];
+        for(int i = 0;i<nums.size();i++){
+            prefix[i+1] = prefix[i] + nums.get(i);
+        }
+        int ans = Integer.MAX_VALUE;
+        for(int i = 0;i<nums.size();i++){
+            for(int len = l;len<=r;len++){
+                int j = i+ len;
+                
+                if (j > prefix.length-1) {
+                    break;
+                }
+                int sum = prefix[j] - prefix[i];
+                if(sum>0){
+                    ans = Math.min(ans,sum);
+                }
             }
         }
-
-        return best == Integer.MAX_VALUE ? -1 : best;
+        return ans==Integer.MAX_VALUE ? -1: ans;
     }
 }
 ```

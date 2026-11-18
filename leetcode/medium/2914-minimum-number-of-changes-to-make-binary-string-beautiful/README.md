@@ -61,14 +61,22 @@ Explanation: We don't need to make any changes as the string "0000" is beautiful
 ## Solution
 
 **Language:** Java  
-**Runtime:** 10 ms (beats 4.88%)  
-**Memory:** 46.1 MB (beats 78.05%)  
-**Submitted:** 2026-11-18T14:22:00.062Z  
+**Runtime:** 0 ms  
+**Memory:** 42.2 MB  
+**Submitted:** 2026-11-18T14:22:29.831Z  
 
 ```java
 class Solution {
     public int minChanges(String s) {
-        return (int) IntStream.range(0, s.length() / 2).filter(i -> s.charAt(2 * i) != s.charAt(2 * i + 1)).count();
+        // return (int) IntStream.range(0, s.length() / 2).filter(i -> s.charAt(2 * i) != s.charAt(2 * i + 1)).count();
+           int n = s.length();
+        int cnt = 0;
+        for(int i = 1; i < n; i += 2) {
+            int pc = s.charAt(i - 1);
+            int c = s.charAt(i);
+            if(c != pc) cnt++;
+        }
+        return cnt;
    
     }
 }

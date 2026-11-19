@@ -28,7 +28,7 @@ Explanation: 7, 5, 3, 1 are odd numbers in descending order and 0, 2, 4 are even
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-19T14:43:47.590Z  
+**Submitted:** 2026-11-19T14:49:03.946Z  
 
 ```java
 class Solution {
@@ -36,14 +36,14 @@ class Solution {
     int n= arr.length;
     for(int i=0;i<n;i++){
        if(arr[i]%2!=0){
-            arr[i] *=-1;
+            arr[i] =-arr[i];
        }
     }
     Arrays.sort(arr);
         
          for(int i=0;i<n;i++){
        if(arr[i]%2!=0){
-            arr[i] *=-1;
+            arr[i] =-arr[i];
        }
     }
     }
